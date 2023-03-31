@@ -20,16 +20,16 @@ public:
     Makefile();
 
     // Setters
-    void setCompiler(QString _compiler);
-    void setFlags(QVector<QString> flags);
-    void addFlag(QString _flag);
-    void setLibs(QString _libs);
-    void addLib(QString _lib);
-    void setSrcDir(QDir _srcDir);
+    inline void setCompiler(QString _compiler) { compiler = _compiler; }
+    inline void setFlags(QVector<QString> _flags) { cFlags = _flags; }
+    inline void addFlag(QString _flag) { cFlags.append(_flag); }
+    inline void setLibs(QVector<QString> _libs) { ldLibs = _libs; }
+    inline void addLib(QString _lib) { ldLibs.append(_lib); }
+    inline void setSrcDir(QDir _srcDir) { srcDir = _srcDir; }
     inline void setSrcDir(QString _srcDir) { setSrcDir(QDir(_srcDir)); }
-    void setObjDir(QDir _objDir);
+    inline void setObjDir(QDir _objDir) { objDir = _objDir; }
     inline void setObjDir(QString _objDir) { setObjDir(QDir( _objDir)); }
-    void setBinDir(QDir _binDir);
+    inline void setBinDir(QDir _binDir) { binDir = _binDir; }
     inline void setBinDir(QString _binDir) {setBinDir(QDir(_binDir)); }
 
 
