@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QStringListModel>
+#include <QVector>
+
+#include "project.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -11,6 +15,8 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QStringListModel *model;
+    QVector<Project> projects;
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -18,5 +24,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void setProjectInfosLabel();
 };
 #endif // MAINWINDOW_H
