@@ -11,10 +11,12 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    makefile.cpp \
     project.cpp
 
 HEADERS += \
     mainwindow.h \
+    makefile.h \
     project.h
 
 FORMS += \

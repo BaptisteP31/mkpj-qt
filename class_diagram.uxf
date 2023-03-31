@@ -13,7 +13,7 @@ __+load(): Project__
 +setConfig(config: QSettings)
 +setLicensed(lisence: bool)
 
-+export()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>216</y><w>336</w><h>540</h></coordinates><panel_attributes>Makefile
++export()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>216</y><w>336</w><h>576</h></coordinates><panel_attributes>Makefile
 --
 -compiler: QString
 -cFlags: QVector&lt;QString&gt;
@@ -44,6 +44,7 @@ __+load(): Project__
 +getBinDir(): QDir
 +getTarget() : QString
 
++generate(): QString
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>240</y><w>180</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 -makefile
 m1=1</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>216</y><w>144</w><h>84</h></coordinates><panel_attributes>_settings: QSettings_
