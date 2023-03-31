@@ -5,7 +5,7 @@
 #include <QVector>
 #include <QDir>
 
-class makefile
+class Makefile
 {
 private:
     QString compiler;
@@ -17,7 +17,7 @@ private:
     QString target;
 
 public:
-    makefile();
+    Makefile();
 
     // Setters
     void setCompiler(QString _compiler);

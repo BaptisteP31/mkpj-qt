@@ -1,7 +1,7 @@
 
 #include "makefile.h"
 
-makefile::makefile()
+Makefile::Makefile()
 {
 
 }
