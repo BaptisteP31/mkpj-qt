@@ -42,6 +42,10 @@ public:
     inline QDir getBinDir() const { return binDir; }
     inline QString getTarget() const { return target; }
 
+
+    // Methods
+    QString generate();
+
 };
 
 #endif // MAKEFILE_H
