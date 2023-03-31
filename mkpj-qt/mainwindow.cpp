@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle(QString("MKPJ - Qt edition"));
+
+    ui->statusbar->showMessage(tr("MKPJ Qt - 0.1"));
 }
 
 MainWindow::~MainWindow()
