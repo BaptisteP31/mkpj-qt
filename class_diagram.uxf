@@ -23,6 +23,10 @@ __+load(): Project__
 -binDir: QDir
 -target: QString
 --
++Makefile()
++Makefile(Makefile &amp;src)
++Makefile(*all the private attributes*)
+
 +setCompiler(compiler: QString)
 +setFlags(flags: QVector&lt;QString&gt;)
 +addFlag(cflag: QString)

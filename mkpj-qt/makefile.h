@@ -18,6 +18,8 @@ private:
 
 public:
     Makefile();
+    Makefile(Makefile &src);
+    Makefile(QString _compiler, QVector<QString> _cFlags, QVector<QString> _ldLibs, QDir _objDir, QDir _binDir, QString _target);
 
     // Setters
     inline void setCompiler(QString _compiler) { compiler = _compiler; }
