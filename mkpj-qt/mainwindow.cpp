@@ -13,7 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
     // Users should not be able to directly edit the list
     ui->projectListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    Project p(QString("pr"), QDir("."));
+    Makefile mk;
+    mk.addLib("-lcurses");
+    mk.addFlag("-ggdb3");
+
+    Project p(QString("pr"), QDir("."), mk);
+    qDebug() << p;
+
     projects.append(p);
 
     // Fills the list view

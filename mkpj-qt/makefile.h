@@ -18,7 +18,7 @@ private:
 
 public:
     Makefile();
-    Makefile(Makefile &src);
+    Makefile(const Makefile &src);
     Makefile(QString _compiler, QVector<QString> _cFlags, QVector<QString> _ldLibs, QDir _objDir, QDir _binDir, QString _target);
 
     // Setters
@@ -48,6 +48,13 @@ public:
     // Methods
     QString generate();
 
+
+    // Operators
+    Makefile& operator=(const Makefile& src);
+
+    friend QDebug operator<<(QDebug debug, const Makefile& makefile);
 };
+
+QDebug operator<<(QDebug debug, const Makefile& makefile);
 
 #endif // MAKEFILE_H
