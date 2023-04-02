@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QFile>
+#include <QTextStream>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , model(new QStringListModel(this))
@@ -16,9 +19,19 @@ MainWindow::MainWindow(QWidget *parent)
     Makefile mk;
     mk.addLib("-lcurses");
     mk.addFlag("-ggdb3");
+    mk.setBinDir("binaries");
+    mk.setSrcDir("sources");
+
+    QFile file("mklog.txt");
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+    QTextStream out(&file);
+    out << mk.generate();
+
+
+    qDebug() << mk.generate();
 
     Project p(QString("pr"), QDir("."), mk);
-    qDebug() << p;
+    //qDebug() << p;
 
     projects.append(p);
 
