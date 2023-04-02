@@ -25,6 +25,16 @@ QString Project::toQString() const {
     return QString(name);
 }
 
+void Project::outputMakefile(QString name)
+{
+    QFile file(name);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        throw std::runtime_error("Unable to write to " + name.toStdString());
+
+    QTextStream out(&file);
+    out << makefile.generate();
+}
+
 QDebug operator<<(QDebug debug, const Project& project)
 {
     debug << project.name << " at " << project.directory << "\n" << project.makefile;

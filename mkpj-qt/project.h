@@ -20,11 +20,14 @@ public:
     Project(QString _name, QDir _directory, Makefile _makefile);
     Project(QString _name, QDir _directory);
 
+    // Getters
+    inline QString getName() const {return name;}
+    inline Makefile getMakefile() const {return makefile;}
+
     //static Project load();
 
     QString toQString() const;
-
-    inline QString getName() const {return name;}
+    void outputMakefile(QString name="Makefile");
 
     // This will need to change later
     friend std::ostream& operator<<(std::ostream& out, const Project pr);

@@ -16,22 +16,21 @@ MainWindow::MainWindow(QWidget *parent)
     // Users should not be able to directly edit the list
     ui->projectListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
+    // Testing makefile creation
     Makefile mk;
     mk.addLib("-lcurses");
-    mk.addFlag("-ggdb3");
-    mk.setBinDir("binaries");
+    mk.addFlag("-ggdb3");;
     mk.setSrcDir("sources");
 
-    QFile file("mklog.txt");
-    file.open(QIODevice::WriteOnly | QIODevice::Text);
-    QTextStream out(&file);
-    out << mk.generate();
-
-
-    qDebug() << mk.generate();
+    // Testing makefile output
+    //QFile file("mklog.txt");
+    //file.open(QIODevice::WriteOnly | QIODevice::Text);
+    //QTextStream out(&file);
+    //out << mk.generate();
 
     Project p(QString("pr"), QDir("."), mk);
     //qDebug() << p;
+    p.outputMakefile("debugMakefile.txt");
 
     projects.append(p);
 
