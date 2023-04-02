@@ -147,11 +147,11 @@ QString Makefile::generate()
     makefile.append('\n');
 
     // Linker flags
-    //makefile.append("LDFLAGS = ");
+    makefile.append("LDFLAGS = ");
     //for (QString &flag: ldFlags)
     //    makefile.append(flag + " ");
 
-    //makefile.append('\n');
+    makefile.append('\n');
 
     // Linker libs
     makefile.append("LDLIBS = ");
