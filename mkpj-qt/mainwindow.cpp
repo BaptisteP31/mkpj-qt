@@ -77,6 +77,9 @@ void MainWindow::setProjectInfosLabel() {
             flags.append(flag + " ");
 
     ui->libsLabelFill->setText(libs);
+
+    // Change status bar to match project infos
+    ui->statusbar->showMessage(QString(selected.getDirectory().canonicalPath()));
 }
 
 MainWindow::~MainWindow()

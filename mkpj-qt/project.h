@@ -23,6 +23,7 @@ public:
     // Getters
     inline QString getName() const {return name;}
     inline Makefile getMakefile() const {return makefile;}
+    inline QDir getDirectory() const {return directory;}
 
     //static Project load();
 
