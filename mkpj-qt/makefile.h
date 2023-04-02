@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QDir>
 #include <QRegularExpression>
+#include <QDebug>
 
 class Makefile
 {
