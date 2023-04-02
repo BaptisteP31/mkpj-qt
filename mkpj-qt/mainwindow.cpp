@@ -46,7 +46,29 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 void MainWindow::setProjectInfosLabel() {
-    ui->nameLabelFill->setText(projects.at(ui->projectListView->currentIndex().row()).getName());
+    const Project &selected = projects.at(ui->projectListView->currentIndex().row());
+
+    // Project groupBox
+    ui->nameLabelFill->setText(selected.getName());
+
+
+    // Build groupBox
+    const Makefile &makefile = selected.getMakefile();
+    ui->targetLabelFill->setText(makefile.getTarget());
+
+    QString flags;
+    if (!selected.getMakefile().getFlags().empty())
+        for (QString &flag : makefile.getFlags())
+            flags.append(flag + " ");
+
+    ui->flagsLabelFill->setText(flags);
+
+    QString libs;
+    if (!selected.getMakefile().getLibs().empty())
+        for (QString &flag : makefile.getFlags())
+            flags.append(flag + " ");
+
+    ui->libsLabelFill->setText(libs);
 }
 
 MainWindow::~MainWindow()

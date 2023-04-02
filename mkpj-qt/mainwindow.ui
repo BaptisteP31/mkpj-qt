@@ -14,74 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>40</y>
-      <width>160</width>
-      <height>106</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="1" column="0">
-      <widget class="QLabel" name="descLabel">
-       <property name="text">
-        <string>Description :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="descLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Name :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="nameLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Version :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="versionLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="licenceLabel">
-       <property name="text">
-        <string>Licence :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="licenceLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -135,10 +67,10 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>180</y>
-      <width>159</width>
-      <height>78</height>
+      <x>300</x>
+      <y>500</y>
+      <width>271</width>
+      <height>81</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -160,6 +92,134 @@
       <widget class="QPushButton" name="downloadButton">
        <property name="text">
         <string>Download class from the list</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="projectInfosBox">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>30</y>
+      <width>271</width>
+      <height>125</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Projects infos</string>
+    </property>
+    <layout class="QFormLayout" name="formLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="nameLabelFill">
+       <property name="text">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="descLabel">
+       <property name="text">
+        <string>Description :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="descLabelFill">
+       <property name="text">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Version :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="versionLabelFill">
+       <property name="text">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="licenceLabel">
+       <property name="text">
+        <string>Licence :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="licenceLabelFill">
+       <property name="text">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="buildInofsGroup">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>170</y>
+      <width>271</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Build infos</string>
+    </property>
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="targetLabel">
+       <property name="text">
+        <string>Target :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="targetLabelFill">
+       <property name="text">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="flagsLabel">
+       <property name="text">
+        <string>Flags :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="flagsLabelFill">
+       <property name="text">
+        <string>None</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="libsLabel">
+       <property name="text">
+        <string>Libs :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="libsLabelFill">
+       <property name="text">
+        <string>None</string>
        </property>
       </widget>
      </item>
