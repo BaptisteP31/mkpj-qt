@@ -162,7 +162,7 @@ QString Makefile::generate()
 
     // Directories
     makefile.append("SRC = $(wildcard " + srcDir.dirName() + "/*.cpp" + '\n');
-    makefile.append("OBJ = $(SRC:" + srcDir.dirName() +"/%.cpp=" + objDir.dirName() + "/%.o)" + '\n');
+    makefile.append("OBJ = $(SRC:" + srcDir.dirName() +"/%.cpp=" + objDir.dirName() + "/%.o" + '\n');
     makefile.append("BIN = " + binDir.dirName() + '\n');
 
     // Target
