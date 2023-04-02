@@ -51,6 +51,7 @@ QDebug operator<<(QDebug debug, const Makefile& makefile) {
     debug
         << "Compiler: " << makefile.getCompiler() << "\n"
         << "CFlags: " << makefile.getFlags() << "\n"
+        //<< "LdFlags: " << makefile.getLdFlags() << "\n"
         << "LDLibs: " << makefile.getLibs() << "\n"
         << "srcDir: " << makefile.getSrcDir() << "\n"
         << "objDir: " << makefile.getObjDir() << "\n"
@@ -60,6 +61,76 @@ QDebug operator<<(QDebug debug, const Makefile& makefile) {
 
     return debug;
 }
+
+
+Makefile Makefile::parseMakefile(const QString& filename)
+{
+    Makefile makefile;
+
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qWarning() << "Failed to open file:" << filename;
+        return makefile;
+    }
+
+    static QRegularExpression compilerRegex("^CC\\s*=\\s*(.*)$");
+    static QRegularExpression cFlagsRegex("^CFLAGS\\s*=\\s*(.*)$");
+    //static QRegularExpression ldFlagsRegex("^LDFLAGS\\s*=\\s*(.*)$");
+    static QRegularExpression ldLibsRegex("^LDLIBS\\s*=\\s*(.*)$");
+    static QRegularExpression srcRegex("^SRC\\s*=\\s*(.*)$");
+    static QRegularExpression objRegex("^OBJ\\s*=\\s*(.*)$");
+    static QRegularExpression binRegex("^BIN\\s*=\\s*(.*)$");
+    static QRegularExpression targetRegex("^TARGET\\s*=\\s*(.*)$");
+
+    while (!file.atEnd())
+    {
+        QString line = file.readLine().trimmed();
+
+        if (compilerRegex.match(line).hasMatch())
+        {
+            makefile.compiler = compilerRegex.match(line).captured(1).trimmed();
+        }
+        else if (cFlagsRegex.match(line).hasMatch())
+        {
+            QString flags = cFlagsRegex.match(line).captured(1).trimmed();
+            makefile.cFlags = flags.split(" ", Qt::SkipEmptyParts).toVector();
+        }
+        else if (ldLibsRegex.match(line).hasMatch())
+        {
+            QString libs = ldLibsRegex.match(line).captured(1).trimmed();
+            makefile.ldLibs = libs.split(" ", Qt::SkipEmptyParts).toVector();
+        }
+        /* I have no idea why, ldflags does not function properly
+        else if (ldFlagsRegex.match(line).hasMatch())
+        {
+            QString ldf = ldFlagsRegex.match(line).captured(1).trimmed();
+            makefile.ldFlags = ldf.split(" ", Qt::SkipEmptyParts).toVector();
+        }
+        */
+        else if (srcRegex.match(line).hasMatch())
+        {
+            QString src = srcRegex.match(line).captured(1).trimmed();
+            makefile.srcDir = QDir(src);
+        }
+        else if (objRegex.match(line).hasMatch())
+        {
+            QString obj = objRegex.match(line).captured(1).trimmed();
+            makefile.objDir = QDir(obj);
+        }
+        else if (binRegex.match(line).hasMatch())
+        {
+            QString bin = binRegex.match(line).captured(1).trimmed();
+            makefile.binDir = QDir(bin);
+        }
+        else if (targetRegex.match(line).hasMatch())
+        {
+            makefile.target = targetRegex.match(line).captured(1).trimmed();
+        }
+    }
+    return makefile;
+}
+
 
 QString Makefile::generate()
 {
@@ -74,6 +145,13 @@ QString Makefile::generate()
         makefile.append(flag + " ");
 
     makefile.append('\n');
+
+    // Linker flags
+    //makefile.append("LDFLAGS = ");
+    //for (QString &flag: ldFlags)
+    //    makefile.append(flag + " ");
+
+    //makefile.append('\n');
 
     // Linker libs
     makefile.append("LDLIBS = ");

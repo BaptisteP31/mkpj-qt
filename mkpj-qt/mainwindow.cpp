@@ -17,10 +17,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->projectListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // Testing makefile creation
-    Makefile mk;
+    //Makefile mk;
+    //mk.addLib("-lcurses");
+    //mk.addFlag("-ggdb3");;
+    //mk.setSrcDir("sources");
+
+    // Testing makefile parsing
+    Makefile mk = Makefile::parseMakefile("debugMakefile.txt");
+    //mk.addLdFlag("--no-pie");
+    mk.addFlag("-Wall");
     mk.addLib("-lcurses");
-    mk.addFlag("-ggdb3");;
-    mk.setSrcDir("sources");
+    mk.setCompiler("clang++");
+    qDebug() << mk.generate();
 
     // Testing makefile output
     //QFile file("mklog.txt");
