@@ -113,16 +113,9 @@ QMainWindow::title {
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="addButton">
+        <widget class="QPushButton" name="newButton">
          <property name="text">
-          <string>Add</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="modifyButton">
-         <property name="text">
-          <string>Modify</string>
+          <string>New project</string>
          </property>
         </widget>
        </item>
@@ -141,9 +134,9 @@ QMainWindow::title {
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>490</y>
+      <y>480</y>
       <width>271</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -170,129 +163,155 @@ QMainWindow::title {
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="projectInfosBox">
+   <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>30</y>
+      <y>220</y>
       <width>271</width>
-      <height>125</height>
+      <height>144</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Projects infos</string>
-    </property>
-    <layout class="QFormLayout" name="formLayout_3">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Name :</string>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QGroupBox" name="buildInofsGroup">
+       <property name="title">
+        <string>Build infos</string>
        </property>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="targetLabel">
+          <property name="text">
+           <string>Target :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="targetLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="flagsLabel">
+          <property name="text">
+           <string>Flags :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="flagsLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="libsLabel">
+          <property name="text">
+           <string>Libs :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="libsLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="nameLabelFill">
+     <item>
+      <widget class="QPushButton" name="editMakefileButton">
        <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="descLabel">
-       <property name="text">
-        <string>Description :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="descLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Version :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="versionLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="licenceLabel">
-       <property name="text">
-        <string>Licence :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="licenceLabelFill">
-       <property name="text">
-        <string>None</string>
+        <string>Edit Makefile</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="buildInofsGroup">
+   <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>170</y>
+      <y>40</y>
       <width>271</width>
-      <height>111</height>
+      <height>168</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Build infos</string>
-    </property>
-    <layout class="QFormLayout" name="formLayout_2">
-     <item row="0" column="0">
-      <widget class="QLabel" name="targetLabel">
-       <property name="text">
-        <string>Target :</string>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QGroupBox" name="projectInfosBox">
+       <property name="title">
+        <string>Projects infos</string>
        </property>
+       <layout class="QFormLayout" name="formLayout_3">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Name :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="nameLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="descLabel">
+          <property name="text">
+           <string>Description :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="descLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Version :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="versionLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="licenceLabel">
+          <property name="text">
+           <string>Licence :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="licenceLabelFill">
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="targetLabelFill">
+     <item>
+      <widget class="QPushButton" name="editProjectButton">
        <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="flagsLabel">
-       <property name="text">
-        <string>Flags :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="flagsLabelFill">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="libsLabel">
-       <property name="text">
-        <string>Libs :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="libsLabelFill">
-       <property name="text">
-        <string>None</string>
+        <string>Edit project</string>
        </property>
       </widget>
      </item>
@@ -305,7 +324,7 @@ QMainWindow::title {
      <x>0</x>
      <y>0</y>
      <width>591</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

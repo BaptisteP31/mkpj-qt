@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "editmakefiledialog.h"
 
 #include <QFile>
 #include <QTextStream>
@@ -27,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     mk.addFlag("-Wall");
     mk.addLib("-lcurses");
     mk.setCompiler("clang++");
-    qDebug() << mk.generate();
+    //qDebug() << mk.generate();
 
     // Testing makefile output
     //QFile file("mklog.txt");
@@ -35,11 +36,13 @@ MainWindow::MainWindow(QWidget *parent)
     //QTextStream out(&file);
     //out << mk.generate();
 
-    Project p(QString("pr"), QDir("."), mk);
+    Project p(QString("Project 1"), QDir("."), mk);
+    Project p2(QString("Project 2"), QDir("."), mk);
     //qDebug() << p;
     p.outputMakefile("debugMakefile.txt");
 
     projects.append(p);
+    projects.append(p2);
 
     // Fills the list view
     QStringList list;
@@ -88,5 +91,22 @@ MainWindow::~MainWindow()
 {
     delete model;
     delete ui;
+}
+
+void MainWindow::on_editMakefileButton_clicked()
+{
+    if (ui->projectListView->selectionModel()->selectedIndexes().isEmpty())
+    {
+        QMessageBox messageBox(this);
+        messageBox.setWindowTitle("No project selected");
+        messageBox.setText("You cannot edit a Makefile without selecting a project first.");
+        messageBox.setStyleSheet("QMessageBox { background-color: #1e1e1e; color: white; }");
+        messageBox.setIcon(QMessageBox::Warning);
+        messageBox.exec();
+        return;
+    }
+
+    editMakefileDialog *diag = new editMakefileDialog(this);
+    diag->show();
 }
 

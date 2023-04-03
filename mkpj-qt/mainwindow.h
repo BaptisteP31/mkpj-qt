@@ -5,6 +5,7 @@
 #include <QString>
 #include <QStringListModel>
 #include <QVector>
+#include <QMessageBox>
 
 #include "project.h"
 
@@ -27,5 +28,6 @@ private:
 
 private slots:
     void setProjectInfosLabel();
+    void on_editMakefileButton_clicked();
 };
 #endif // MAINWINDOW_H
