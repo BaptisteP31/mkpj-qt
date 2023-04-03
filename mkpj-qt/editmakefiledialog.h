@@ -14,9 +14,11 @@ class editMakefileDialog : public QDialog
 public:
     explicit editMakefileDialog(QWidget *parent = nullptr);
     ~editMakefileDialog();
-
-private:
     Ui::editMakefileDialog *ui;
+
+private slots:
+    void on_buttonBox_accepted();
+
 };
 
 #endif // EDITMAKEFILEDIALOG_H

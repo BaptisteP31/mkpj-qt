@@ -12,3 +12,9 @@ editMakefileDialog::~editMakefileDialog()
 {
     delete ui;
 }
+
+void editMakefileDialog::on_buttonBox_accepted()
+{
+
+}
+

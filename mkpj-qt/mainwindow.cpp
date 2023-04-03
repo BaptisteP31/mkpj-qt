@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "editmakefiledialog.h"
+#include "ui_editmakefiledialog.h"
 
 #include <QFile>
 #include <QTextStream>
@@ -27,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     //mk.addLdFlag("--no-pie");
     mk.addFlag("-Wall");
     mk.addLib("-lcurses");
-    mk.setCompiler("clang++");
+    mk.setCompiler("g++");
     //qDebug() << mk.generate();
 
     // Testing makefile output
@@ -107,6 +108,21 @@ void MainWindow::on_editMakefileButton_clicked()
     }
 
     editMakefileDialog *diag = new editMakefileDialog(this);
+    const Project &selected = projects.at(ui->projectListView->currentIndex().row());
+    const Makefile &makefile = selected.getMakefile();
+    diag->ui->compilerLineEdit->setText(makefile.getCompiler());
+
+    QString flags;
+    for (QString &item : makefile.getFlags())
+        flags.append(item + " ");
+
+    diag->ui->cflagsLineEdit->setText(flags);
+
+    QString libs;
+    for (QString &item : makefile.getLibs())
+        libs.append(item + " ");
+
+    diag->ui->ldlibsLineEdit->setText(libs);
     diag->show();
 }
 
