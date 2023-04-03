@@ -1,7 +1,12 @@
 #include "project.h"
 
-Project::Project(QString _name, QDir _directory, Makefile _makefile)
-    : name(_name), directory(_directory), makefile(_makefile)
+Project::Project(QString _name, QDir _directory, Makefile _makefile, QString _description, QString _version, QString _license)
+    : name(_name)
+    , directory(_directory)
+    , description(_description)
+    , version(_version)
+    , license(_license)
+    , makefile(_makefile)
 {
     if(!directory.exists(name))
         directory.mkpath(name);
@@ -10,7 +15,11 @@ Project::Project(QString _name, QDir _directory, Makefile _makefile)
 }
 
 Project::Project(QString _name, QDir _directory)
-    : name(_name), directory(_directory)
+    : name(_name)
+    , directory(_directory)
+    , description()
+    , version("1.0")
+    , license("not specified")
 {
 
 }

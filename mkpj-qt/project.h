@@ -13,17 +13,23 @@ class Project
 private:
     QString name;
     QDir directory;
+    QString description;
+    QString version;
+    QString license;
     Makefile makefile;
 
 public:
     Project()=delete;
-    Project(QString _name, QDir _directory, Makefile _makefile);
+    Project(QString _name, QDir _directory, Makefile _makefile, QString _description="", QString _version="1.0", QString _license="not specified");
     Project(QString _name, QDir _directory);
 
     // Getters
     inline QString getName() const {return name;}
     inline Makefile getMakefile() const {return makefile;}
     inline QDir getDirectory() const {return directory;}
+    inline QString getDesc() const {return description;}
+    inline QString getVersion() const {return version;}
+    inline QString getLicense() const {return license;}
 
     //static Project load();
 

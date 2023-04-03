@@ -57,6 +57,9 @@ void MainWindow::setProjectInfosLabel() {
 
     // Project groupBox
     ui->nameLabelFill->setText(selected.getName());
+    ui->descLabelFill->setText(selected.getDesc());
+    ui->versionLabelFill->setText(selected.getVersion());
+    ui->licenceLabelFill->setText(selected.getLicense());
 
 
     // Build groupBox
