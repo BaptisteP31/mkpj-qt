@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/logos">
         <file>mkpj-logo.png</file>
+        <file>mkpj-logo-square.png</file>
     </qresource>
 </RCC>
