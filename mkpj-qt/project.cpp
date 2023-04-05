@@ -11,7 +11,7 @@ Project::Project(QString _name, QDir _directory, Makefile _makefile, QString _de
     if(!directory.exists(name))
         directory.mkpath(name);
     else
-        qDebug() << "The directory already exists !";
+        qDebug() << "The directory <" + name + "> already exists !";
 }
 
 Project::Project(QString _name, QDir _directory)
