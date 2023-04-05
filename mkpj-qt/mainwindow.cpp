@@ -99,8 +99,8 @@ void MainWindow::on_editMakefileButton_clicked()
     if (ui->projectListView->selectionModel()->selectedIndexes().isEmpty())
     {
         QMessageBox messageBox(this);
-        messageBox.setWindowTitle("No project selected");
-        messageBox.setText("You cannot edit a Makefile without selecting a project first.");
+        messageBox.setWindowTitle(tr("No project selected"));
+        messageBox.setText(tr("You cannot edit a Makefile without selecting a project first."));
         messageBox.setStyleSheet("QMessageBox { background-color: #1e1e1e; color: white; }");
         messageBox.setIcon(QMessageBox::Warning);
         messageBox.exec();

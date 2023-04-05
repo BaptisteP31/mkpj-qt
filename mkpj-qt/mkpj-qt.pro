@@ -26,7 +26,7 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    mkpj-qt_en_150.ts
+    mkpj-qt_fr_FR.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
